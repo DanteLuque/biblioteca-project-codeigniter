@@ -1,0 +1,14 @@
+CREATE DATABASE BIBLIOTECA;
+USE BIBLIOTECA;
+
+CREATE TABLE libros(
+	id	INT AUTO_INCREMENT PRIMARY KEY,
+	nombre VARCHAR(200) NOT NULL,
+	imagen TEXT NOT NULL
+)ENGINE=INNODB;
+
+INSERT INTO libros VALUES 
+	(NULL, 'libro a', 'libroA.jpg'),
+	(NULL, 'libro b', 'libroB.jpg');
+
+SELECT * FROM libros;
