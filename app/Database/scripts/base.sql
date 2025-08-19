@@ -12,3 +12,13 @@ INSERT INTO libros VALUES
 	(NULL, 'libro b', 'libroB.jpg');
 
 SELECT * FROM libros;
+
+
+CREATE TABLE editoriales(
+	id	INT AUTO_INCREMENT PRIMARY KEY,
+	editorial VARCHAR(200) NOT NULL,
+	telefono CHAR(9) NULL,
+	direccion VARCHAR(100) NULL
+)ENGINE=INNODB;
+
+SELECT * FROM editoriales;

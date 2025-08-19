@@ -1,34 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  <title>Biblioteca</title>
-</head>
-<body>
+<?= $header; ?>
 
 <div class="container">
-  <h1>Libros registrados</h1>
-  <table class="table">
-    <thead>
-      <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Imagen</th>
-      <th>Acciones</th>
-      </tr>
-    </thead>
-  </table>
+  <div class="my-2">
+    <h4>Lista de Libros</h4>
+    <a href="<?=base_url('libros/crear')?>">Registrar</a>
+  </div>
+  
+  <div class="table-responsive">
+    <table class="table table-sm">
+      <colgroup>
+        <col width="10%">
+        <col width="40%">
+        <col width="30%">
+        <col width="20%">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Libro</th>
+          <th>Imagen</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php foreach ($libros as $libro): ?>
+          <tr>
+            <td><?= $libro['id'] ?></td>
+            <td><?= $libro['nombre'] ?></td>
+            <td><?= $libro['imagen'] ?></td>
+
+            <td>
+              <a href="" class="btn btn-sm btn-danger">Editar</a>
+              <a href="" class="btn btn-sm btn-info">Eliminar</a>
+            </td>
+          </tr>
+        <?php endforeach; ?>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-    crossorigin="anonymous"></script>
-</body>
-
-</html>
+<?= $footer; ?>
