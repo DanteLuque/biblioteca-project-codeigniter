@@ -3,9 +3,9 @@
 <div class="container">
   <div class="my-2">
     <h4>Lista de Libros</h4>
-    <a href="<?=base_url('libros/crear')?>">Registrar</a>
+    <a class="btn btn-sm btn-primary" href="<?= base_url('libros/crear') ?>">Registrar</a>
   </div>
-  
+
   <div class="table-responsive">
     <table class="table table-sm">
       <colgroup>
@@ -27,7 +27,13 @@
           <tr>
             <td><?= $libro['id'] ?></td>
             <td><?= $libro['nombre'] ?></td>
-            <td><?= $libro['imagen'] ?></td>
+            <td>
+              <?php if ($libro['imagen']) { ?>
+                <img src="/uploads/<?= $libro['imagen'] ?>" alt="imagen" width="75px">
+              <?php } else { ?>
+                <span>sin imagen</span>
+              <?php } ?>
+            </td>
 
             <td>
               <a href="" class="btn btn-sm btn-danger">Editar</a>
