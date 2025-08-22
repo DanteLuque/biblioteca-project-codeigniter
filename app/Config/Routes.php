@@ -16,7 +16,10 @@ $routes->get('/libros/editar', 'Libros::editar');
 $routes->post('/libros/save_db', 'Libros::saveDB');
 
 
-//Editoriales
+//Editoriales - RENDER VIEWS
 $routes->get('/editoriales', 'Editoriales::index');
 $routes->get('/editoriales/crear', 'Editoriales::crear');
 $routes->get('/editoriales/editar', 'Editoriales::editar');
+
+// Libros - LOGIC
+$routes->post('/editoriales/save_db', 'Editoriales::saveDB');
