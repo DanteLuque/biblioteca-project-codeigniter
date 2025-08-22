@@ -20,6 +20,7 @@
           <th>editorial</th>
           <th>telefono</th>
           <th>direccion</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
