@@ -24,7 +24,7 @@
       </thead>
       <tbody>
         <?php foreach ($libros as $libro): ?>
-          <tr>
+          <tr class="align-middle">
             <td><?= $libro['id'] ?></td>
             <td><?= $libro['nombre'] ?></td>
             <td>
@@ -36,8 +36,11 @@
             </td>
 
             <td>
-              <a href="" class="btn btn-sm btn-danger">Editar</a>
-              <a href="" class="btn btn-sm btn-info">Eliminar</a>
+              <a 
+              href="<?= base_url('libros/editar/')?><?=$libro['id']?>" 
+              class="btn btn-sm btn-danger">Editar</a>
+
+              <a href="<?= base_url('libros/eliminar_db/')?><?=$libro['id']?>" class="btn btn-sm btn-info">Eliminar</a>
             </td>
           </tr>
         <?php endforeach; ?>

@@ -18,13 +18,15 @@
 
           <div>
             <label for="imagen">Imagen de portada</label>
-            <input type="file" class="form-control" name="imagen" id="imagen" autofocus required>
+            <input type="file" class="form-control" name="imagen" id="imagen" 
+            accept="image/png,image/jpeg,image/jpg"
+            autofocus required>
           </div>
 
         </div>
       </div>
       <div class="card-footer text-end">
-        <button type="reset" class="btn btn-sm btn-outline-secondary">Cancelar</button>
+        <a href="<?= base_url('libros') ?>" type="reset" class="btn btn-sm btn-outline-secondary">Cancelar</a>
         <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
       </div>
     </div>

@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="card-footer text-end">
-        <button type="reset" class="btn btn-sm btn-outline-secondary">Cancelar</button>
+        <a href="<?= base_url('libros') ?>" type="reset" class="btn btn-sm btn-outline-secondary">Cancelar</a>
         <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
       </div>
     </div>
