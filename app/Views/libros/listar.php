@@ -4,6 +4,7 @@
   <div class="my-2">
     <h4>Lista de Libros</h4>
     <a class="btn btn-sm btn-primary" href="<?= base_url('libros/crear') ?>">Registrar</a>
+    <a class="btn btn-sm btn-secondary" href="<?= base_url('libros/buscar') ?>">Listar</a>
   </div>
 
   <div class="table-responsive">

@@ -17,6 +17,14 @@ class Libros extends BaseController
         return view('libros/listar', $data);
     }
 
+    public function buscar(): string
+    {
+        $data['header'] = view('Layouts/header');
+        $data['footer'] = view('Layouts/footer');
+
+        return view('libros/buscar', $data);
+    }
+
     public function crear(): string
     {
         $data['header'] = view('Layouts/header');
@@ -106,5 +114,38 @@ class Libros extends BaseController
 
         }
     }
+
+
+    public function buscarLibroDB()
+    {
+        $libro = new Libro();
+
+        $this->response->setContentType('application/json');
+        $input = $this->request->getJSON();
+
+        if (empty($input->id)) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Debe indicar el ID'
+            ]);
+        }
+
+        $id = $input->id;
+        $registro = $libro->where('id', $id)->first();
+
+        if (!$registro) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Libro no encontrado'
+            ]);
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'nombre' => $registro['nombre'],
+            'imagen' => $registro['imagen']
+        ]);
+    }
+
 
 }

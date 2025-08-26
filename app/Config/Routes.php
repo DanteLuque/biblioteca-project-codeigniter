@@ -10,6 +10,9 @@ $routes->get('/test', 'Home::test');
 
 // Libros - RENDER VIEWS
 $routes->get('/libros', 'Libros::index');
+$routes->get('/libros/buscar', 'Libros::buscar');
+$routes->get('/libros/buscar', 'Libros::buscar');
+$routes->post('/public/api/buscarlibro', 'Libros::buscarLibroDB');
 $routes->get('/libros/crear', 'Libros::crear');
 $routes->get('/libros/editar/(:num)', 'Libros::editar/$1');
 // Libros - LOGIC
