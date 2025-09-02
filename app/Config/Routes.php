@@ -21,9 +21,25 @@ $routes->get('/libros/eliminar_db/(:num)', 'Libros::deleteDB/$1');
 $routes->post('/libros/update_db/(:num)', 'Libros::updateDB/$1');
 
 
-//Editoriales - RENDER VIEWS
+// Editoriales - RENDER VIEWS
 $routes->get('/editoriales', 'Editoriales::index');
 $routes->get('/editoriales/crear', 'Editoriales::crear');
 $routes->get('/editoriales/editar', 'Editoriales::editar');
 // Libros - LOGIC
 $routes->post('/editoriales/save_db', 'Editoriales::saveDB');
+
+// Personas - RENDER VIEWS
+$routes->get('/personas', 'Personas::index');
+$routes->get('/personas/crear', 'Personas::crear');
+// Personas - LOGIC
+$routes->post('/personas/save_db', 'Personas::saveDB');
+
+//ubigeo
+$routes->group('ubigeo', static function ($routes) {
+    $routes->get('departamentos', 'UbigeoController::departamentos');
+    $routes->get('provincias/(:num)', 'UbigeoController::provincias/$1');
+    $routes->get('distritos/(:num)', 'UbigeoController::distritos/$1');
+});
+
+//reniec
+$routes->get('/reniec/consultaDni/(:num)', 'ReniecController::consultaDni/$1');
