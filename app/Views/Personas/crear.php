@@ -6,7 +6,7 @@
     <a class="btn btn-sm btn-secondary" href="<?= base_url('personas') ?>">volver</a>
   </div>
 
-  <form method="POST" action="<?= base_url('personas/save_db') ?>">
+  <form method="POST" action="<?= base_url('personas/save_db') ?>" id="formularioRegistro">
 
     <div class="card mb-3">
       <div class="card-header">Datos de Persona</div>

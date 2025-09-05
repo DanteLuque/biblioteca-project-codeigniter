@@ -8,6 +8,8 @@
 <!-- custom scripts-->
 <script type="module" src="<?= base_url('js/ubigeo.js') ?>"></script>
 <script type="module" src="<?= base_url('js/decolecta.js') ?>"></script>
+<script type="module" src="<?= base_url('js/confirm-register.js') ?>"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
