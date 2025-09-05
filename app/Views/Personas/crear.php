@@ -71,7 +71,7 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-success">Registrar</button>
+    <button type="submit" class="btn btn-success" id="btnRegistrar">Registrar</button>
   </form>
 
 </div>
