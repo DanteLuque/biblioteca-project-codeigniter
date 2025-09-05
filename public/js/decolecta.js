@@ -7,7 +7,7 @@ export async function loadInfoReniec() {
   if (inputDNI.length === 8) {
 
     const res = await fetch(`/reniec/consultaDni/${inputDNI}`)
-    if(res.ok) btnRegistrar.classList.add('disabled')
+    if (res.ok) btnRegistrar.classList.add('disabled')
 
     const data = await res.json();
     if (data) {
@@ -24,7 +24,10 @@ export async function loadInfoReniec() {
   }
 }
 
-document.addEventListener("input", () => {
-  loadInfoReniec();
+document.addEventListener("keydown", (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    loadInfoReniec();
+  }
 });
 
