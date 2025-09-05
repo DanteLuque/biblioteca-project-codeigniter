@@ -27,7 +27,7 @@
             <td><?= $persona['apellidos'] ?></td>
             <td><?= $persona['nombres'] ?></td>
             <td><?= $persona['telefono'] ?></td>
-            <td><?= $persona['nombre_distrito']  ?></td>
+            <td><?= $persona['nombre_departamento'] ." | ". $persona['nombre_provincia']." | ".  $persona['nombre_distrito']?></td>
 
             <td>
               <a href="<?= base_url('libros/editar/') ?><?= $persona['idpersona'] ?>" class="btn btn-sm btn-danger">Editar</a>

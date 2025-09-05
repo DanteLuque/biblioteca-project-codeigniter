@@ -18,8 +18,16 @@ class Persona extends Model
   {
     $db = \Config\Database::connect();
     $builder = $db->table('personas p');
-    $builder->select('p.*, d.name as nombre_distrito');
+
+    $builder->select('p.*, 
+              d.name as nombre_distrito,
+              pro.name as nombre_provincia,
+              dep.name as nombre_departamento');
+
     $builder->join('distritos d', 'd.id = p.distrito_id', 'inner');
+    $builder->join('provincias pro', 'pro.id = d.provincia_id', 'inner');
+    $builder->join('departamentos dep', 'dep.id = pro.departamento_id', 'inner');
+    
     return $builder->get()->getResultArray();
   }
 }
