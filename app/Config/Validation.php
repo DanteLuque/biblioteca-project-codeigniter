@@ -8,6 +8,8 @@ use CodeIgniter\Validation\StrictRules\FileRules;
 use CodeIgniter\Validation\StrictRules\FormatRules;
 use CodeIgniter\Validation\StrictRules\Rules;
 
+use App\Rules\CustomRules;
+
 class Validation extends BaseConfig
 {
     // --------------------------------------------------------------------
@@ -25,6 +27,8 @@ class Validation extends BaseConfig
         FormatRules::class,
         FileRules::class,
         CreditCardRules::class,
+
+        CustomRules::class,
     ];
 
     /**
