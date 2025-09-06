@@ -13,7 +13,7 @@ if (!function_exists('runValidation')) {
         $validation = \Config\Services::validation();
 
         switch ($entity) {
-            case 'usuario':
+            case 'recurso':
                 $rules  = (new \App\Validations\RecursoValidation())->rules;
                 $errors = (new \App\Validations\RecursoValidation())->errors;
                 break;

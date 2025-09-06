@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Ramsey\Uuid\Uuid;
 
-class Cliente extends BaseModel
+class Recurso extends BaseModel
 {
-    protected $table      = 'clientes';
+    protected $table      = 'recursos';
     protected $primaryKey = 'id';
     protected $allowedFields = [
         'UUID',
@@ -22,14 +22,29 @@ class Cliente extends BaseModel
         'estado',
     ];
 
-    public function crear(array $data): int
+
+    public function crear(array $data, $imagenFile = null, $pdfFile = null): int
     {
         $data['UUID'] = Uuid::uuid4()->toString();
+        $data['estado'] = true;
+
+        if ($imagenFile && $imagenFile->isValid() && !$imagenFile->hasMoved()) {
+            $newName = $imagenFile->getRandomName();
+            $imagenFile->move(FCPATH . 'uploads/portadas/', $newName);
+            $data['ruta_portada'] = 'uploads/portadas/' . $newName;
+        }
+
+        if ($pdfFile && $pdfFile->isValid() && !$pdfFile->hasMoved()) {
+            $newName = $pdfFile->getRandomName();
+            $pdfFile->move(FCPATH . 'uploads/recursos/', $newName);
+            $data['ruta_recurso'] = 'uploads/recursos/' . $newName;
+        }
+
         return $this->insert($data, true);
     }
 
     public function obtenerPorId($id)
     {
-        return $this->where('usuario_id', $id)->first();
+        return $this->where('id', $id)->first();
     }
 }

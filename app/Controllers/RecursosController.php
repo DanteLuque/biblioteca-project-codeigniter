@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Mantenimiento\Editorial;
+use App\Models\Recurso;
 
 class RecursosController extends BaseController
 {
@@ -19,22 +20,24 @@ class RecursosController extends BaseController
         return view('Recursos/crear', $data);
     }
 
-    /*
-    public function saveDB(){
-        $editorial = new Editorial();
+    public function saveDB()
+    {
+        helper('validation');
+        $errors = [];
+        $errors = array_merge($errors, runValidation('recurso', $this->request));
+        if (!empty($errors)) return redirect()->back()->withInput()->with('errors', $errors);
 
-        $nombre = $this->request->getVar('editorial');
-        $telefono = $this->request->getVar('telefono');
-        $direccion = $this->request->getVar('direccion');
+        try {
+            $recursoModel = new Recurso();
+            $data = $this->request->getPost();
+            $imagenFile = $this->request->getFile('ruta_portada');
+            $pdfFile    = $this->request->getFile('ruta_recurso');
 
-        $registro = [
-            'editorial' => $nombre,
-            'telefono' => $telefono,
-            'direccion' => $direccion
-        ];
+            $recursoModel->crear($data, $imagenFile, $pdfFile);
 
-        $editorial->insert($registro);
-        return $this->response->redirect(base_url('editoriales'));
+            return redirect()->to('/')->with('success', 'Recurso registrado con éxito');
+        } catch (\Throwable $e) {
+            return redirect()->back()->withInput()->with('error', 'Hubo un error: ' . $e->getMessage());
+        }
     }
-    */
 }

@@ -9,7 +9,7 @@
 
   <?= $this->include('common/msg-error') ?>
 
-  <form method="POST" id="formularioRegistro" action="<?= base_url('/recursos/save') ?>" enctype="multipart/form-data">
+  <form method="POST" id="formularioRegistro" action="<?= base_url('/save_db') ?>" enctype="multipart/form-data">
     <div class="card mb-3">
       <div class="card-header">Datos del recurso</div>
       <div class="card-body">

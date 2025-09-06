@@ -5,6 +5,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- custom scripts-->
+<script type="module" src="<?= base_url('js/recursos.js') ?>"></script>
 <script type="module" src="<?= base_url('js/categorias.js') ?>"></script>
 <script type="module" src="<?= base_url('js/confirm-register.js') ?>"></script>
 </body>
