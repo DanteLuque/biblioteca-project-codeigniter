@@ -24,7 +24,6 @@ CREATE TABLE
 	) ENGINE = INNODB;
 
 -- */mantenimiento
-
 CREATE TABLE
 	recursos (
 		id INT AUTO_INCREMENT PRIMARY KEY,
@@ -38,7 +37,7 @@ CREATE TABLE
 		num_paginas SMALLINT NOT NULL,
 		ruta_portada TEXT NULL,
 		ruta_recurso TEXT NULL,
-		estado BOOL,
+		estado ENUM ('BUENO', 'REGULAR', 'MALO'),
 		created_at DATETIME NULL,
 		updated_at DATETIME NULL,
 		deleted_at DATETIME NULL

@@ -9,7 +9,9 @@ class RecursosController extends BaseController
 {
     public function index(): string
     {
-        return view('Recursos/listar');
+        $recursos = new Recurso();
+        $data['recursos'] = $recursos->listarFullInfo();
+        return view('Recursos/listar', $data);
     }
 
     public function crear(): string

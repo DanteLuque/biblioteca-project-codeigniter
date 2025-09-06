@@ -22,11 +22,33 @@ class Recurso extends BaseModel
         'estado',
     ];
 
+    public function listar(): array
+    {
+        return $this->orderBy('id', 'ASC')->findAll();
+    }
+
+    public function listarFullInfo(): array
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('recursos r');
+
+        $builder->select('r.*, 
+              e.editorial as nombre_editorial,
+              e.nacionalidad as nacionalidad_editorial,
+              sc.nombre as subcategoria,
+              c.nombre as categoria');
+
+        $builder->join('editoriales e', 'e.id = r.editorial_id', 'inner');
+        $builder->join('subcategorias sc', 'sc.id = r.subcategoria_id', 'inner');
+        $builder->join('categorias c', 'c.id = sc.categoria_id', 'inner');
+
+        return $builder->get()->getResultArray();
+    }
+
 
     public function crear(array $data, $imagenFile = null, $pdfFile = null): int
     {
         $data['UUID'] = Uuid::uuid4()->toString();
-        $data['estado'] = true;
 
         if ($imagenFile && $imagenFile->isValid() && !$imagenFile->hasMoved()) {
             $newName = $imagenFile->getRandomName();
@@ -41,10 +63,5 @@ class Recurso extends BaseModel
         }
 
         return $this->insert($data, true);
-    }
-
-    public function obtenerPorId($id)
-    {
-        return $this->where('id', $id)->first();
     }
 }

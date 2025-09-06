@@ -8,6 +8,7 @@ class RecursoValidation
         'subcategoria_id'   => 'required|is_natural_no_zero',
         'editorial_id'      => 'required|is_natural_no_zero',
         'tipo'              => 'required|in_list[FISICO,DIGITAL]',
+        'estado'            => 'required|in_list[BUENO,REGULAR,MALO]',
         'titulo'            => 'required|min_length[3]|max_length[255]',
         'anio_publicacion'  => 'required|exact_length[4]|numeric',
         'isbn'              => 'required|exact_length[13]|is_unique_soft[recursos.isbn]',
@@ -26,6 +27,10 @@ class RecursoValidation
         'tipo' => [
             'required' => 'El tipo es obligatorio',
             'in_list'  => 'El tipo debe ser FISICO o DIGITAL',
+        ],
+        'estado' => [
+            'required' => 'Debe seleccionar un estado',
+            'in_list'  => 'El estado debe ser BUENO, REGULAR o MALO',
         ],
         'titulo' => [
             'required'   => 'El título es obligatorio',

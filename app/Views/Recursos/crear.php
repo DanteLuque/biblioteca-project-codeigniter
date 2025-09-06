@@ -77,6 +77,16 @@
             <input type="file" name="ruta_recurso" id="ruta_recurso" class="form-control" accept=".pdf">
           </div>
 
+          <div class="col-md-6 mb-3">
+            <label>Estado</label>
+            <select name="estado" id="estado" class="form-select" required>
+              <option value="">Seleccione</option>
+              <option value="BUENO">BUENO</option>
+              <option value="REGULAR">REGULAR</option>
+              <option value="MALO">MALO</option>
+            </select>
+          </div>
+          
         </div>
       </div>
       <div class="card-footer text-end">
